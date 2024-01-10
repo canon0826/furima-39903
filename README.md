@@ -15,24 +15,22 @@
 
 ### Association
 
-- has_many:items, dependent::destroy
-- has_many:purchases, dependent::destroy
-- has_one:shipping_address, dependent::destroy
+- has_many:items
+- has_many:purchases
 
 ## itemsテーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
-| image         | string     |                                |
-| name          | string     |                                |
-| description   | text       |                                |
-| category      | string     |                                |
-| condition     | string     |                                |
-| shipping_fee  | string     |                                |
-| shipping_area | string     |                                |
-| shipping_days | string     |                                |
-| price         | integer    |                                |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| name             | string     | null: false                    |
+| description      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| condition_id     | integer    | null: false                    |
+| shipping_fee_id  | integer    | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| shipping_days_id | integer    | null: false                    |
+| price            | integer    | null: false                    |
 
 ### Association
 
@@ -41,19 +39,19 @@
 
 ## shipping_addressesテーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
-| postal_code   | string     |                                |
-| prefecture    | string     |                                |
-| city          | string     |                                |
-| address       | string     |                                |
-| building_name | string     |                                |
-| phone_number  | string     |                                |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| postal_code      | string     | null: false                    |
+| shipping_area_id | integer    | null: false                    |
+| city             | string     | null: false                    |
+| address          | string     | null: false                    |
+| building_name    | string     | null: false                    |
+| phone_number     | string     | null: false                    |
+| purchase         | references | foreign_key: true              |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :purchase
 
 ## purchasesテーブル
 
@@ -66,3 +64,4 @@
 
 - belongs_to :item
 - belongs_to :user
+- belongs_to :shipping_address
