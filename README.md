@@ -29,7 +29,7 @@
 | condition_id     | integer    | null: false                    |
 | shipping_fee_id  | integer    | null: false                    |
 | shipping_area_id | integer    | null: false                    |
-| shipping_days_id | integer    | null: false                    |
+| shipping_day_id  | integer    | null: false                    |
 | price            | integer    | null: false                    |
 
 ### Association
@@ -45,7 +45,7 @@
 | shipping_area_id | integer    | null: false                    |
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
-| building_name    | string     | null: false                    |
+| building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
 | purchase         | references | foreign_key: true              |
 
@@ -64,4 +64,4 @@
 
 - belongs_to :item
 - belongs_to :user
-- belongs_to :shipping_address
+- has_one :shipping_address
