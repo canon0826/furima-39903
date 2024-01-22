@@ -30,8 +30,9 @@ RSpec.describe User, type: :model do
       @user.first_name_kana = 'タロウ'
       expect(@user).to be_valid
     end
+  end
 
-    context '新規登録ができないとき' do
+  context '新規登録ができないとき' do
     it 'nicknameが空では登録できない' do
       @user.nickname = ''
       @user.valid?
@@ -136,5 +137,4 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include('Password は半角英数字混合で入力してください')
     end
   end
-end
 end
