@@ -1,9 +1,9 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :items
 
   with_options presence: true do
-    validates :user
     validates :image
     validates :name
     validates :description
