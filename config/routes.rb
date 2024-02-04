@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :items do
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-    resources :items, only: :index
+    resources :items
   end
   # Defines the root path route ("/")
   # root "articles#index"
