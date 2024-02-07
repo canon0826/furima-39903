@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
   def destroy
     if current_user.id == @item.user_id
       @item.destroy
+    end
       redirect_to root_path
     end
   end
@@ -57,4 +58,3 @@ class ItemsController < ApplicationController
   def editable?
     current_user.id == @item.user_id
   end
-end
