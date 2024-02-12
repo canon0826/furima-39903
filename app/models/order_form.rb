@@ -15,7 +15,7 @@ class OrderForm
   end
 
   def save
-      purchase = Purchase.create(item_id: params[:item_id].to_i, user_id: user_id)
+    purchase = Purchase.create(item_id: item_id, user_id: user_id)
   
       ShippingAddress.create(postal_code: postal_code, shipping_area_id: shipping_area_id, city: city, address: address, building_name: building_name, phone_number: phone_number, purchase_id: purchase.id)
   end
