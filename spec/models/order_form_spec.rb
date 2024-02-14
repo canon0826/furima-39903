@@ -26,7 +26,7 @@ RSpec.describe OrderForm, type: :model do
       expect(@order_form.errors.full_messages).to include("Postal code can't be blank")
     end
     it '郵便番号は3桁ハイフン4桁の正しい形式でないと保存できないこと' do
-      @order_form.postal_code = '123-4567'
+      @order_form.postal_code = '1234567'
       @order_form.valid?
       expect(@order_form.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
     end
@@ -53,12 +53,12 @@ RSpec.describe OrderForm, type: :model do
     it '電話番号が9桁以下だと購入できないこと' do
       @order_form.phone_number = '090123456'
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_form.errors.full_messages).to include("Phone number is invalid. Do not Include hyphen(-)")
     end
     it '電話番号が12桁以上だと購入できない' do
       @order_form.phone_number = '090123456789'
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_form.errors.full_messages).to include("Phone number is invalid. Do not Include hyphen(-)")
     end
     it '電話番号が半角数値でないと購入できないこと' do
       @order_form.phone_number = '09012341234'
@@ -73,7 +73,7 @@ RSpec.describe OrderForm, type: :model do
     it 'item_idが紐づいていなければ購入できないこと' do
       @order_form.item_id = nil
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include("item can't be blank")
+      expect(@order_form.errors.full_messages).to include("Item can't be blank")
     end
   end
 end
