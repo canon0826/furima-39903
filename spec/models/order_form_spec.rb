@@ -31,9 +31,9 @@ RSpec.describe OrderForm, type: :model do
       expect(@order_form.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
     end
     it '都道府県を選択していないと保存できないこと' do
-      @order_form.shipping_area_id = 1
+      @order_form.shipping_area_id = 0
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include("Shippingarea can't be blank")
+      expect(@order_form.errors.full_messages).to include("Shipping area can't be blank")
     end
     it '市区町村が空だと購入できないこと' do
       @order_form.city = ''
@@ -61,9 +61,9 @@ RSpec.describe OrderForm, type: :model do
       expect(@order_form.errors.full_messages).to include("Phone number is invalid. Do not Include hyphen(-)")
     end
     it '電話番号が半角数値でないと購入できないこと' do
-      @order_form.phone_number = '09012341234'
+      @order_form.phone_number = '123-456'
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_form.errors.full_messages).to include("Phone number is invalid. Do not Include hyphen(-)")
     end
     it 'user_idが紐づいていなければ購入できないこと' do
       @order_form.user_id = nil
