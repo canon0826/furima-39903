@@ -15,6 +15,7 @@ RSpec.describe OrderForm, type: :model do
       expect(@order_form).to be_valid
     end
     it '建物名は空でも保存できること' do
+      @order_form.building_name = ''
       expect(@order_form).to be_valid
     end
   end
