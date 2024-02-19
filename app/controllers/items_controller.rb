@@ -23,9 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless editable?
-    if @item.purchase.present?
-      redirect_to root_path
+    if !editable? || @item.purchase.present?
+      redirect_to root_path and return
     end
   end
 
