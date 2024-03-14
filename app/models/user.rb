@@ -11,11 +11,14 @@ class User < ApplicationRecord
     self.birth_date = value
   end
 
-  validates :nickname, presence: true
-  validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid' }
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid' }
-  validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid' }
-  validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid' }
-  validates :birth_date, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :last_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid' }
+    validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid' }
+    validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid' }
+    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid' }
+    validates :birth_date
+  end
+
   validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: "は半角英数字混合で入力してください" }
 end
