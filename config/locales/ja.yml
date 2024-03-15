@@ -1,0 +1,76 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 名字
+        first_name: 名前
+        last_name_kana: 名字（カナ）
+        first_name_kana: 名前（カナ）
+        birth_date: 生年月日
+      item:
+        image: 画像
+        name: 商品名
+        description: 商品の説明
+        price: 販売価格
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        shipping_fee_id: 配送料の負担
+        shipping_area_id: 発送元の地域
+        shipping_day_id: 発送までの日数
+
+    errors:
+      models:
+        user:
+          attributes:
+            last_name:
+              blank: "を入力してください"
+              invalid: "を全角(漢字・カタカナ・ひらがな)で入力してください"
+            first_name:
+              blank: "を入力してください"
+              invalid: "を全角(漢字・カタカナ・ひらがな)で入力してください"
+            last_name_kana:
+              blank: "を入力してください"
+              invalid: "を全角カタカナで入力してください"
+            first_name_kana:
+              blank: "を入力してください"
+              invalid: "を全角カタカナで入力してください"
+
+        item:
+          attributes:
+            image:
+              blank: "を選択してください"
+            name:
+              blank: "を入力してください"
+            description:
+              blank: "を入力してください"
+            price:
+              blank: "を入力してください"
+            category_id:
+              blank: "を選択してください"
+            condition_id:
+              blank: "を選択してください"
+            shipping_fee_id:
+              blank: "を選択してください"
+            shipping_area_id:
+              blank: "を選択してください"
+            shipping_day_id:
+              blank: "を選択してください"
+  activemodel:
+    attributes:
+      order_form:
+        postal_code: 郵便番号
+        shipping_area_id: 都道府県
+        city: 市区町村
+        address: 番地
+        building_name: 建物名
+        phone_number: 電話番号
+
+    errors:
+      models:
+        order_form:
+          attributes:
+            postal_code:
+              invalid: "は無効です。ハイフン（-）を含めてください"
+            phone_number:
+              invalid: "は無効です。ハイフン（-）は含めないでください"
