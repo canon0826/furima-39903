@@ -56,6 +56,7 @@ ja:
               blank: "を選択してください"
             shipping_day_id:
               blank: "を選択してください"
+
   activemodel:
     attributes:
       order_form:
@@ -74,3 +75,5 @@ ja:
               invalid: "は無効です。ハイフン（-）を含めてください"
             phone_number:
               invalid: "は無効です。ハイフン（-）は含めないでください"
+            shipping_area_id:
+              blank: "を選択してください"
