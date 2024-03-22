@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :order_form do
 
     postal_code { '123-4567' }
-    shipping_area_id { 1 }
+    shipping_area_id { 2 }
     city { '横浜市緑区' }
     address { '1-1' }
     building_name { '柳ビル103' }
